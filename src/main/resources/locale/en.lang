@@ -1,0 +1,42 @@
+[item]
+TungstenCannon=Tungsten Cannon
+OddStickyWand=Odd Sticky Wand
+MonolithicAmalgamation=Monolithic Amalgamation
+AmalgamatedStone=Amalgamated Stone
+StickyLiquid=Sticky Liquid
+Liferock=Living Rock
+AmalgamatedAmmoItem=Amalgamated Bullet
+SentientAbomination=Sentient Abomination
+
+
+[itemtooltip]
+tungstencannon=Magical cannon that shoots large tungsten chunks at enemies.
+whitewand=A wand with an odd looking orb that seems to be expelling some sticky white material.
+SentientAbomination=Can only use certain bullets. It seems to watch you.
+AmalgamatedAmmoItemDesc=An unreasonably heavy bullet.
+monoamal=An impossibly large chunk of amalgamated rocks, this should be impossible to swing.
+wendysanchor=How are you even throwing this? AND HOW DOES IT KEEP COMING BACK?!
+
+
+[object]
+
+
+
+[mobs]
+
+
+[ui]
+amalgamator=Amalgamator Workstation
+
+[buff]
+oddballdebuff=Sticky
+
+[enchantment]
+enraged=Enraged
+forceful=Forceful
+rampaging=Rampaging
+vexing=Vexing
+flowing=Flowing
+pinpoint=Pinpoint
+rabid=Rabid
+noble=Noble
