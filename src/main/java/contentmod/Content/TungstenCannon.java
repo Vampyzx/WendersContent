@@ -25,11 +25,11 @@ public class TungstenCannon extends ProjectileToolItem {
     public TungstenCannon() {
         super(1600);
         this.rarity =  Rarity.EPIC;
-        this.animSpeed = 1000; // 1 (1 second(s)) ms attack time
-        this.attackDmg = new GameDamage(GameDamage.DamageType.MELEE, 80.0F); // 80 ranged damage;
-        this.velocity = 400; // Velocity of projectiles
-        this.knockback = 750; // Knockback of projectiles
-        this.attackRange = 960; // Range of the projectile
+        attackAnimTime.setBaseValue(1000);
+        attackDamage.setBaseValue(80);
+        velocity.setBaseValue(400);
+        knockback.setBaseValue(750);
+        attackRange.setBaseValue(1000);
         // Offsets of the attack item sprite relative to the player arm
         this.attackXOffset = 20;
         this.attackYOffset = 20;

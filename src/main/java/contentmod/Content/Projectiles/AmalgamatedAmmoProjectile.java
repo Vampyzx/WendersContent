@@ -1,8 +1,6 @@
 package contentmod.Content.Projectiles;
 
 import necesse.engine.tickManager.TickManager;
-import necesse.entity.mobs.GameDamage;
-import necesse.entity.mobs.Mob;
 import necesse.entity.mobs.PlayerMob;
 import necesse.entity.projectile.bulletProjectile.BulletProjectile;
 import necesse.entity.trails.Trail;
@@ -26,10 +24,6 @@ public class AmalgamatedAmmoProjectile extends BulletProjectile {
     // Textures are loaded from resources/projectiles/<projectileStringID>
     // If shadow path is defined when registering the projectile, it is loaded from
     // that path into this projectile shadowTexture field
-
-    public AmalgamatedAmmoProjectile(float x, float y, float targetX, float targetY, int speed, int range, GameDamage add, int knockback, Mob owner) {
-        super();
-    }
 
     @Override
     public void init(){
