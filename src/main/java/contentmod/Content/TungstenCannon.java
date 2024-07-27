@@ -6,6 +6,7 @@ import necesse.engine.localization.Localization;
 import necesse.engine.network.PacketReader;
 import necesse.engine.network.packet.PacketSpawnProjectile;
 import necesse.engine.sound.SoundEffect;
+import necesse.engine.util.GameBlackboard;
 import necesse.engine.util.GameRandom;
 import necesse.entity.mobs.AttackAnimMob;
 import necesse.entity.mobs.GameDamage;
@@ -36,18 +37,15 @@ public class TungstenCannon extends ProjectileToolItem {
     }
 
     @Override
-    public ListGameTooltips getTooltips(InventoryItem item, PlayerMob perspective) {
-        ListGameTooltips tooltips = super.getTooltips(item, perspective);
+    public ListGameTooltips getPreEnchantmentTooltips(InventoryItem item, PlayerMob perspective, GameBlackboard blackboard) {
+        ListGameTooltips tooltips = super.getPreEnchantmentTooltips(item, perspective, blackboard);
         tooltips.add(Localization.translate("itemtooltip", "tungstencannon"));
-        tooltips.add(getAttackDamageTip(item, perspective)); // Add attack damage to tooltip
-        tooltips.add(getAttackSpeedTip(item, perspective)); // Adds attack speed to tooltip
-        addCritChanceTip(tooltips, item, perspective); // Adds crit chance if above 0%
         return tooltips;
     }
 
     @Override
     public void showAttack(Level level, int x, int y, AttackAnimMob mob, int attackHeight, InventoryItem item, int seed, PacketReader contentReader) {
-        if (level.isClientLevel()) {
+        if (level.isClient()) {
             // Play magic bolt sound effect with 70% volume, and a random pitch between 100 and 110%
             Screen.playSound(GameResources.magicbolt1, SoundEffect.effect(mob)
                     .volume(1.0f)
@@ -61,9 +59,9 @@ public class TungstenCannon extends ProjectileToolItem {
                 level, player, // Level and owner
                 player.x, player.y, // Start position of projectile
                 x, y, // Target position of projectile
-                getVelocity(item, player), // Will add player buffs, enchantments etc
+                getProjectileVelocity(item, player), // Will add player buffs, enchantments etc
                 getAttackRange(item), // Will add player buffs, enchantments etc
-                getDamage(item), // Will add player buffs, enchantments etc
+                getAttackDamage(item), // Will add player buffs, enchantments etc
                 getKnockback(item, player) // Will add player buffs, enchantments etc
         );
         // Sync the uniqueID using the given seed
@@ -71,9 +69,9 @@ public class TungstenCannon extends ProjectileToolItem {
         projectile.resetUniqueID(random);
         projectile.moveDist(30);
         level.entityManager.projectiles.addHidden(projectile);
-        if (level.isServerLevel()) {
+        if (level.isServer()) {
             // We do attacking client as an exception, since the above logic is already running on his side
-            level.getServer().network.sendToClientsAtExcept(new PacketSpawnProjectile(projectile), player.getServerClient(), player.getServerClient());
+            level.getServer().network.sendToClientsWithEntityExcept(new PacketSpawnProjectile(projectile), projectile, player.getServerClient());
         }
 
         // Should return the item after it's been used.
