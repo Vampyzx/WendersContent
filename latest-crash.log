@@ -21,7 +21,7 @@ java.lang.IllegalStateException: Cannot construct unregistered Projectile class 
 	at necesse.entity.projectile.Projectile.<init>(Projectile.java:143)
 	at necesse.entity.projectile.boomerangProjectile.BoomerangProjectile.<init>(BoomerangProjectile.java:13)
 	at contentmod.Content.Projectiles.anchorprojectile.<init>(anchorprojectile.java:36)
-	at contentmod.Content.Uendizuanka.onAttack(Uendizuanka.java:44)
+	at contentmod.Content.WendysAnchor.onAttack(Uendizuanka.java:44)
 	at necesse.entity.mobs.PlayerMob.runAttack(PlayerMob.java:1375)
 	at necesse.engine.network.packet.PacketPlayerAttack.processServer(PacketPlayerAttack.java:81)
 	at necesse.engine.network.NetworkPacket.processServer(NetworkPacket.java:240)

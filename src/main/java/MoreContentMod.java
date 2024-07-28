@@ -8,7 +8,7 @@ import contentmod.Content.Projectiles.oddball;
 import contentmod.Content.Projectiles.tungstenball;
 import contentmod.Content.StatusEffects.oddballdebuff;
 import contentmod.Content.TungstenCannon;
-import contentmod.Content.Uendizuanka;
+import contentmod.Content.WendysAnchor;
 import necesse.engine.localization.message.StaticMessage;
 import necesse.engine.modLoader.annotations.ModEntry;
 import necesse.engine.modifiers.ModifierValue;
@@ -39,7 +39,7 @@ public class MoreContentMod {
         ItemRegistry.registerItem("TungstenCannon", new TungstenCannon(), 600, true);
         ItemRegistry.registerItem("OddStickyWand", new OddStickyWand(), 300, true);
         ItemRegistry.registerItem("MonolithicAmalgamation", new MonolithicAmalgamation(), 1000, true);
-        ItemRegistry.registerItem("Uendizuanka", new Uendizuanka(), 750, true);
+        ItemRegistry.registerItem("Wendy's Anchor", new WendysAnchor(), 750, true);
 
         ProjectileRegistry.registerProjectile("tungstencannonball", tungstenball.class, "tungstenball", "tungstenballshadow");
         ProjectileRegistry.registerProjectile("oddball", oddball.class, "oddprojectile", "oddprojectileshadow");
